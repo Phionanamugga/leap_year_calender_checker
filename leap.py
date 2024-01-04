@@ -1,12 +1,12 @@
-# Which year do you want to check?
-year = int(input())
-if year % 4 == 0:
-    if year % 100 == 0:
-        if year % 400 == 0:
-            print("Leap year")
+def merge(nums1, m, nums2, n):
+    while m > 0 and n > 0:
+        if nums1[m-1] > nums2[n-1]:
+            nums1[m+n-1] = nums1[m-1]
+            m -= 1
         else:
-            print("Not a leap year")
-    else:
-        print("Leap year")
-else:
-    print("Not a leap year")
+            nums1[m+n-1] = nums2[n-1]
+            n -= 1
+
+    if n > 0:
+        nums1[:n] = nums2[:n]
+print(merge)
